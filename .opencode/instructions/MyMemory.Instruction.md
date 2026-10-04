@@ -1,6 +1,6 @@
 # My Memory Context
 
-**Stand:** 2026-10-04 11:45
+**Stand:** 2026-10-04 12:07
 
 ## Fortschritt
 
@@ -8,6 +8,7 @@
 
 - Die Lara-47-zentrierte Astro-One-Page ist unter `https://autor.krick.me` veröffentlicht.
 - Die Erweiterung mit vollständiger Leseprobe, KU-Hinweis, cookie-freiem Kontaktformular und ausführlicheren Datenschutzhinweisen ist veröffentlicht und live geprüft.
+- Das offizielle deutsche `Erhältlich bei Amazon`-Badge, der Ab-18-Hinweis der Leseprobe und der Band-2-Satz sind veröffentlicht und responsiv geprüft.
 
 **Risiken:**
 
@@ -24,6 +25,7 @@
 - [X] GitHub einrichten, mit Cloudflare deployen und Live-Domain verifizieren.
 - [X] Formularerweiterung mit Resend deployen und durch eine echte Testnachricht live prüfen.
 - [ ] Kindle-Unlimited-Hinweis Ende Oktober 2026 bestätigen oder entfernen.
+- [ ] Leserinnenstimmen nur ergänzen, wenn eine schriftliche Freigabe dokumentiert ist; der Punkt hat keine Eile.
 
 ## Entscheidungen
 
@@ -49,13 +51,13 @@
 
 ### Leseprobe und öffentliche Buchangaben (2026-10-04)
 
-**Entscheidung:** Kapitel 1 wird vollständig auf einer eigenen statischen Seite unter `/leseprobe/` veröffentlicht. Die Startseite verweist darauf, nennt die aktuelle Kindle-Unlimited-Verfügbarkeit und bezeichnet Attila als `Autor · Songtexter`. Band 2 wird ohne Erscheinungsdatum weiterhin nicht öffentlich angekündigt.
+**Entscheidung:** Kapitel 1 wird vollständig auf einer eigenen statischen Seite unter `/leseprobe/` veröffentlicht. Die Startseite verweist darauf, nennt die aktuelle Kindle-Unlimited-Verfügbarkeit, verwendet das unveränderte offizielle deutsche `Erhältlich bei Amazon`-Badge und bezeichnet Attila als `Autor · Songtexter`. Der Autorbereich erwähnt knapp, dass Band 2 vor dem ersten spielt und gerade entsteht.
 
-**Begründung:** Eine eigene Seite bleibt direkt verlinkbar und hält die Verkaufsseite kompakt. KU ist ein belegter Kauf- beziehungsweise Lesehebel. Die Rollenbezeichnung ist durch die Projektdokumentation gedeckt. Für Band 2 gilt weiterhin die bestehende Marketingentscheidung, die Vorgeschichte bis zu einem belastbaren Erscheinungstermin nicht öffentlich zu kommunizieren.
+**Begründung:** Eine eigene Seite bleibt direkt verlinkbar und hält die Verkaufsseite kompakt. KU ist ein belegter Kauf- beziehungsweise Lesehebel. Das von KDP freigegebene Badge macht den Amazon-Wechsel sichtbar, ohne ein nicht autorisiertes Kindle-Unlimited-Logo zu verwenden. Die Rollenbezeichnung ist durch die Projektdokumentation gedeckt. Der User hat die knappe Band-2-Erwähnung ohne Erscheinungstermin ausdrücklich freigegeben.
 
-**Konsequenz:** `src/pages/leseprobe.md` enthält den unveränderten Kapiteltext. Astros automatische typografische Umwandlung ist deaktiviert. Der KU-Hinweis braucht Ende Oktober eine erneute Prüfung.
+**Konsequenz:** `src/pages/leseprobe.md` enthält den unveränderten Kapiteltext; ein vorgeschalteter Hinweis nennt Altersfreigabe, Menschenhandel und Entwürdigung. Astros automatische typografische Umwandlung ist deaktiviert. Der KU-Hinweis braucht Ende Oktober eine erneute Prüfung. Leserinnenstimmen werden erst nach dokumentierter schriftlicher Freigabe verwendet.
 
-**Verworfen:** Vollständiges Kapitel direkt in der One-Page, reiner Amazon-Leseprobenlink und eine öffentliche Band-2-Ankündigung.
+**Verworfen:** Vollständiges Kapitel direkt in der One-Page, reiner Amazon-Leseprobenlink, ein nicht freigegebenes Kindle-Unlimited-Logo und eine ausführliche Band-2-Ankündigung mit unbelegtem Erscheinungstermin.
 
 ### Cookie-freies Kontaktformular (2026-10-04)
 
@@ -86,3 +88,4 @@
 | 2026-10-04 09:43 | 2026-10-04 | Astro-Seite gebaut, responsiv und technisch geprüft, nach GitHub gepusht und über Workers Static Assets mit Custom Domain veröffentlicht | Verifizierte Toolergebnisse und Live-Abruf | erledigt |
 | 2026-10-04 10:50 | 2026-10-04 | Eigene Leseprobenseite, KU-Hinweis, Rollenbezeichnung `Autor · Songtexter`, erweiterter Datenschutz und cookie-freies Kontaktformular umgesetzt | User-Entscheidungen und verifizierte lokale Builds sowie Browserprüfung | lokal erledigt, E-Mail-Onboarding und Deployment offen |
 | 2026-10-04 11:45 | 2026-10-04 | Resend-Versanddomain `mail.autor.krick.me` verifiziert, API-Schlüssel als Cloudflare-Secret hinterlegt, Erweiterung veröffentlicht und Kontaktformular produktiv getestet | Verifizierte Cloudflare-, Resend- und Browserergebnisse | Live-Seite bestätigt Versand; Resend meldet Testnachricht an `attila@krick.me` als `Delivered` |
+| 2026-10-04 12:07 | 2026-10-04 | Offizielles deutsches Amazon-Badge eingebunden, Leseprobe mit Ab-18-Inhaltshinweis ergänzt, Band 2 knapp angekündigt und schriftliche Freigabe als Voraussetzung für Leserinnenstimmen festgelegt | User-Entscheidung, offizielle KDP-Assets sowie verifizierter Build und Live-Browserprüfung | veröffentlicht; Desktop und Mobilansicht geprüft |

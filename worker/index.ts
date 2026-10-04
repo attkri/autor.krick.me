@@ -22,6 +22,20 @@ const redirect = (target: string) =>
     },
   });
 
+const contactResponse = (request: Request, sent: boolean, errorStatus = 400) => {
+  if (request.headers.get("Accept")?.includes("application/json")) {
+    return Response.json(
+      { sent },
+      {
+        status: sent ? 200 : errorStatus,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
+  }
+
+  return redirect(sent ? "#kontakt-versendet" : "#kontakt-fehler");
+};
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -40,20 +54,20 @@ export default {
     const origin = request.headers.get("Origin");
     const contentLength = Number(request.headers.get("Content-Length") ?? "0");
     if (origin !== siteUrl || contentLength > 20_000) {
-      return redirect("#kontakt-fehler");
+      return contactResponse(request, false);
     }
 
     const clientKey = request.headers.get("CF-Connecting-IP") ?? "unknown";
     const rateLimit = await env.CONTACT_RATE_LIMITER.limit({ key: `contact:${clientKey}` });
     if (!rateLimit.success) {
-      return redirect("#kontakt-fehler");
+      return contactResponse(request, false, 429);
     }
 
     let formData: FormData;
     try {
       formData = await request.formData();
     } catch {
-      return redirect("#kontakt-fehler");
+      return contactResponse(request, false);
     }
 
     const name = String(formData.get("name") ?? "").trim();
@@ -63,12 +77,12 @@ export default {
     const privacy = formData.get("privacy") === "accepted";
 
     if (website) {
-      return redirect("#kontakt-versendet");
+      return contactResponse(request, true);
     }
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!name || name.length > 100 || !validEmail || email.length > 254 || !message || message.length > 5000 || !privacy) {
-      return redirect("#kontakt-fehler");
+      return contactResponse(request, false);
     }
 
     const safeName = name.replace(/[\r\n]+/g, " ");
@@ -91,12 +105,12 @@ export default {
       });
 
       if (!response.ok) {
-        return redirect("#kontakt-fehler");
+        return contactResponse(request, false, 502);
       }
     } catch {
-      return redirect("#kontakt-fehler");
+      return contactResponse(request, false, 502);
     }
 
-    return redirect("#kontakt-versendet");
+    return contactResponse(request, true);
   },
 };

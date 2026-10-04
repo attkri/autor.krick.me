@@ -41,6 +41,7 @@ const amazonUrl = "https://www.amazon.de/dp/B0GXXH1NCV";
       <div class="chapter-marker" aria-hidden="true">01</div>
       <article>
         <p class="overline">Leseprobe · Band 1</p>
+        <p class="content-warning"><strong>Ab 18.</strong> Das Kapitel zeigt Menschenhandel und Entwürdigung.</p>
         <slot />
         <aside>
           <p>Du möchtest weiterlesen?</p>
@@ -77,6 +78,8 @@ const amazonUrl = "https://www.amazon.de/dp/B0GXXH1NCV";
   article { width: min(45rem, 100%); margin: 0 auto; }
   .chapter-marker { position: absolute; top: 2rem; left: clamp(1.25rem, 6vw, 6rem); color: transparent; font-family: var(--serif); font-size: clamp(7rem, 18vw, 15rem); line-height: 1; -webkit-text-stroke: 1px rgba(184, 145, 86, .24); }
   .overline { margin: 0 0 1.2rem; color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .content-warning { margin: 0 0 2.5rem; padding: .8rem 1rem; border-left: 2px solid var(--gold); color: var(--paper-dim); font-size: .9rem; line-height: 1.5; }
+  .content-warning strong { color: var(--paper); }
   h1 { margin: 0 0 3.5rem; font-family: var(--serif); font-size: clamp(3.5rem, 8vw, 6.8rem); font-weight: 400; letter-spacing: -.03em; line-height: .92; text-wrap: balance; }
   article > p { margin: 0 0 1.5rem; color: #d7cfc2; font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.42rem); line-height: 1.75; }
   article > hr { width: 3.5rem; height: 1px; margin: 3.5rem auto; border: 0; background: var(--gold); }
