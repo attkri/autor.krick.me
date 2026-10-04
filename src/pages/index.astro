@@ -1,0 +1,462 @@
+---
+import { Image } from "astro:assets";
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/cormorant-garamond/600.css";
+
+import authorPortrait from "../assets/attila-krick.png";
+import bookCover from "../assets/lara47-cover.jpg";
+import heroBanner from "../assets/lara47-banner.png";
+import twoCups from "../assets/zwei-tassen.png";
+
+const amazonUrl = "https://www.amazon.de/dp/B0GXXH1NCV";
+const spotifyUrl = "https://open.spotify.com/artist/7xHFjmvtJp2sSOBuRqKjiy";
+const youtubeUrl = "https://www.youtube.com/@AttilaKrickAutor";
+const trailerUrl = "https://youtu.be/e9Bvkmb1Cwo";
+const instagramUrl = "https://www.instagram.com/a_tti_la/";
+
+const externalProps = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Book",
+      name: "Lara 47 - Zwischen Kontrolle und Hingabe",
+      author: { "@type": "Person", name: "Attila Krick" },
+      inLanguage: "de",
+      genre: "Dark Romance",
+      isbn: ["9798258989864", "9798197115027"],
+      url: "https://autor.krick.me/",
+      offers: { "@type": "Offer", url: amazonUrl, availability: "https://schema.org/InStock" },
+    },
+    {
+      "@type": "Person",
+      name: "Attila Krick",
+      url: "https://autor.krick.me/",
+      sameAs: [instagramUrl, spotifyUrl, youtubeUrl],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0b0a08" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Lara 47 von Attila Krick: Dark Romance über Macht, Trauma, Vertrauen und den Preis von Hingabe. Buch, Musik und Trailer."
+    />
+    <meta property="og:type" content="book" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Attila Krick" />
+    <meta property="og:title" content="Lara 47 - Zwischen Kontrolle und Hingabe" />
+    <meta
+      property="og:description"
+      content="Er kauft sie. Und genau deshalb darf er sie nicht besitzen."
+    />
+    <meta property="og:url" content="https://autor.krick.me/" />
+    <meta property="og:image" content="https://autor.krick.me/og-lara47.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lara 47 von Attila Krick" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://autor.krick.me/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Lara 47 | Attila Krick</title>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Lara 47, Startseite">
+        <span>Lara</span><strong>47</strong>
+      </a>
+      <nav aria-label="Hauptnavigation">
+        <a href="#buch">Buch</a>
+        <a href="#musik">Musik</a>
+        <a href="#autor">Autor</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </header>
+
+    <main id="inhalt">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <Image
+          class="hero-image"
+          src={heroBanner}
+          alt="Lara steht mit der Lotnummer 47 im Nacken unter einem Lichtkegel auf einer dunklen Bühne."
+          widths={[960, 1440, 2033]}
+          sizes="100vw"
+          format="avif"
+          quality={72}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="hero-scrim"></div>
+        <div class="hero-index" aria-hidden="true">47</div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span>Roman</span><span>Dark Romance</span><span>Ab 18</span></p>
+          <h1 id="hero-title">Lara <em>47</em></h1>
+          <p class="subtitle">Zwischen Kontrolle und Hingabe</p>
+          <p class="hero-lead">Er kauft sie. Und genau deshalb darf er sie nicht besitzen.</p>
+          <div class="actions">
+            <a class="button button-primary" href={amazonUrl} {...externalProps}>
+              Bei Amazon ansehen <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-secondary" href={trailerUrl} {...externalProps}>
+              Trailer ansehen <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="privacy-note">Keine Cookies. Kein Tracking. Keine eingebetteten Drittanbieter.</p>
+        </div>
+      </section>
+
+      <section class="book section" id="buch" aria-labelledby="book-title">
+        <div class="section-marker" aria-hidden="true"><span>01</span><span>Buch</span></div>
+        <div class="cover-stage">
+          <span class="cover-number" aria-hidden="true">47</span>
+          <Image
+            class="book-cover"
+            src={bookCover}
+            alt="Buchcover von Lara 47 - Zwischen Kontrolle und Hingabe"
+            widths={[360, 560, 760]}
+            sizes="(max-width: 760px) 70vw, 34vw"
+            format="avif"
+            quality={82}
+          />
+        </div>
+        <div class="book-copy">
+          <p class="overline">Lara 47</p>
+          <h2 id="book-title">Sie hat gelernt zu funktionieren. Leben muss sie erst wieder.</h2>
+          <p>
+            Mateo ersteigert Lara als Lot 47. Was er ihr anbietet, ist kein einfacher Ausweg,
+            sondern ein gefährlicher Pakt. Während Vera die alten Netze enger zieht, muss Lara
+            herausfinden, was sie selbst will und was Freiheit für sie kostet.
+          </p>
+          <p>
+            Eine Dark Romance über Macht, Trauma, Vertrauen und den Preis von Hingabe. Düster,
+            sinnlich und spannungsgetrieben.
+          </p>
+          <dl class="book-data">
+            <div><dt>Formate</dt><dd>Kindle, Taschenbuch, Hardcover</dd></div>
+            <div><dt>Taschenbuch</dt><dd>ISBN 9798258989864</dd></div>
+            <div><dt>Hardcover</dt><dd>ISBN 9798197115027</dd></div>
+          </dl>
+          <a class="text-link" href={amazonUrl} {...externalProps}>Alle Ausgaben bei Amazon <span aria-hidden="true">↗</span></a>
+          <details class="content-note">
+            <summary>Inhaltshinweis</summary>
+            <p>
+              Der Roman richtet sich an Erwachsene. Er behandelt unter anderem Menschenhandel,
+              Gefangenschaft, Konditionierung, Gewalt, Trauma, Machtgefälle und explizite Sexualität.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-label="Kernsatz des Romans">
+        <p>Freiheit darf nicht aussehen<br />wie ein schöneres Gefängnis.</p>
+        <span aria-hidden="true">47</span>
+      </section>
+
+      <section class="music section" id="musik" aria-labelledby="music-title">
+        <div class="section-marker" aria-hidden="true"><span>02</span><span>Musik</span></div>
+        <div class="music-visual">
+          <Image
+            src={twoCups}
+            alt="Zwei Tassen stehen auf einem Holztisch vor einem Fenster mit Blick auf das Meer."
+            widths={[640, 960, 1400]}
+            sizes="(max-width: 800px) 100vw, 56vw"
+            format="avif"
+            quality={76}
+          />
+          <p class="image-caption">Manche Kapitel enden nicht auf der letzten Seite.</p>
+        </div>
+        <div class="music-copy">
+          <p class="overline">Lara 47 hören</p>
+          <h2 id="music-title">Songs aus derselben Welt.</h2>
+          <p>
+            Die Musik nimmt Figuren, Kapitel und Spannungen des Romans auf. Attila Krick veröffentlicht
+            Buchsongs auf Spotify und YouTube. Der offizielle Trailer führt zuerst in Laras Welt.
+          </p>
+          <div class="media-links">
+            <a href={spotifyUrl} {...externalProps}>
+              <span class="media-count">01</span>
+              <span><strong>Spotify</strong><small>Buchsongs von Attila Krick</small></span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href={youtubeUrl} {...externalProps}>
+              <span class="media-count">02</span>
+              <span><strong>YouTube</strong><small>Trailer, Songs und Einblicke</small></span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href={trailerUrl} {...externalProps}>
+              <span class="media-count">03</span>
+              <span><strong>Offizieller Trailer</strong><small>Lara 47 auf YouTube</small></span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="privacy-note">Die Plattformen werden erst geöffnet, wenn du einen Link auswählst.</p>
+        </div>
+      </section>
+
+      <section class="author section" id="autor" aria-labelledby="author-title">
+        <div class="section-marker" aria-hidden="true"><span>03</span><span>Autor</span></div>
+        <div class="author-copy">
+          <p class="overline">Attila Krick</p>
+          <h2 id="author-title">Mich interessieren Figuren, die nicht rund laufen.</h2>
+          <p>
+            In meinem Zeugnis der ersten Klasse stand, dass mir das Wiedergeben von Geschichten
+            schwerfällt. Heute schreibe ich Dark Romance über Macht, Nähe, Verletzlichkeit und
+            Widerstand.
+          </p>
+          <p>
+            Dazwischen lagen ein Sozialberuf und die Bundeswehr. Seit vielen Jahren arbeite ich
+            selbständig als Berater und Trainer. "Lara 47" verbindet psychologische Spannung mit
+            Figuren, deren Entscheidungen Folgen haben.
+          </p>
+          <div class="social-links">
+            <a href={instagramUrl} {...externalProps}>Instagram @a_tti_la <span aria-hidden="true">↗</span></a>
+            <a href="mailto:attila@krick.me">attila@krick.me</a>
+          </div>
+        </div>
+        <figure class="author-portrait">
+          <Image
+            src={authorPortrait}
+            alt="Schwarzweißporträt von Attila Krick"
+            widths={[480, 720, 1024]}
+            sizes="(max-width: 800px) 82vw, 42vw"
+            format="avif"
+            quality={78}
+          />
+          <figcaption><span>Attila Krick</span><span>Autor · Musiker · Produzent</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="final-cta" aria-labelledby="cta-title">
+        <span class="cta-number" aria-hidden="true">47</span>
+        <div>
+          <p class="overline">Zwischen Kontrolle und Hingabe</p>
+          <h2 id="cta-title">Laras Geschichte beginnt dort, wo andere längst über sie entschieden haben.</h2>
+          <a class="button button-primary" href={amazonUrl} {...externalProps}>
+            Lara 47 bei Amazon ansehen <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="impressum">
+      <div class="footer-heading">
+        <span class="wordmark"><span>Lara</span><strong>47</strong></span>
+        <p>Ein Roman von Attila Krick</p>
+      </div>
+      <div class="legal-grid">
+        <section aria-labelledby="legal-title">
+          <h2 id="legal-title">Impressum</h2>
+          <p>Angaben gemäß § 5 DDG</p>
+          <address>
+            Attila Krick<br />
+            An der Schanz 20<br />
+            47929 Grefrath<br />
+            Deutschland
+          </address>
+          <p>E-Mail: <a href="mailto:attila@krick.me">attila@krick.me</a></p>
+          <p>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV: Attila Krick, Anschrift wie oben.</p>
+        </section>
+        <section aria-labelledby="privacy-title">
+          <h2 id="privacy-title">Datenschutz</h2>
+          <p>
+            Diese Website setzt keine Cookies und verwendet keine Analyse- oder Trackingdienste.
+            Inhalte von Amazon, Spotify, YouTube und Instagram werden nicht automatisch geladen.
+          </p>
+          <p>
+            Beim Aufruf verarbeitet der Hostinganbieter Cloudflare technisch erforderliche
+            Verbindungsdaten. Wenn du einen externen Link öffnest, gelten die Datenschutzbestimmungen
+            des jeweiligen Anbieters.
+          </p>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Attila Krick</p>
+        <a href="#top">Nach oben <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+    --ink: #0b0a08;
+    --ink-soft: #12100d;
+    --paper: #f0e8da;
+    --paper-dim: #b7ad9f;
+    --gold: #b89156;
+    --gold-light: #d2b77e;
+    --gold-dark: #725329;
+    --line: rgba(184, 145, 86, 0.28);
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Aptos", "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; background: var(--ink); }
+  body { margin: 0; overflow-x: clip; color: var(--paper); background: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.7; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E"); }
+  img { display: block; max-width: 100%; height: auto; }
+  a, summary { touch-action: manipulation; -webkit-tap-highlight-color: rgba(210, 183, 126, .2); }
+  a { color: inherit; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 5px; }
+  ::selection { color: var(--ink); background: var(--gold-light); }
+
+  .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 100; padding: .7rem 1rem; color: var(--ink); background: var(--paper); transform: translateY(-160%); }
+  .skip-link:focus { transform: translateY(0); }
+  .site-header { position: absolute; top: 0; left: 0; z-index: 10; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.25rem clamp(1rem, 4vw, 4rem); border-bottom: 1px solid rgba(240, 232, 218, .13); }
+  .wordmark { display: inline-flex; align-items: baseline; gap: .35em; color: var(--paper); font-family: var(--serif); font-size: 1.45rem; line-height: 1; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+  .wordmark strong { color: var(--gold-light); font-size: 1.1em; font-weight: 400; }
+  nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem clamp(.8rem, 2.4vw, 2.2rem); }
+  nav a { min-height: 2.75rem; display: inline-flex; align-items: center; color: rgba(240, 232, 218, .78); font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+  nav a:hover { color: var(--gold-light); }
+
+  .hero { position: relative; min-height: min(58rem, 100svh); display: grid; align-items: end; overflow: hidden; isolation: isolate; }
+  .hero-image { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: 64% center; }
+  .hero-scrim { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(5, 5, 4, .98) 0%, rgba(5, 5, 4, .88) 29%, rgba(5, 5, 4, .25) 65%, rgba(5, 5, 4, .42) 100%), linear-gradient(0deg, var(--ink) 0%, transparent 34%); }
+  .hero-copy { width: min(46rem, 100%); padding: 9rem clamp(1.25rem, 7vw, 7.5rem) clamp(5rem, 10vh, 8rem); }
+  .eyebrow { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; margin: 0 0 1.6rem; color: var(--gold-light); font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .eyebrow span { display: inline-flex; align-items: center; gap: 1rem; }
+  .eyebrow span:not(:last-child)::after { content: ""; width: 2.5rem; height: 1px; background: var(--line); }
+  h1, h2 { font-family: var(--serif); font-weight: 400; text-wrap: balance; }
+  h1 { margin: 0; font-size: clamp(5.3rem, 13vw, 11.5rem); line-height: .68; letter-spacing: -.045em; text-transform: uppercase; }
+  h1 em { color: var(--gold-light); font-style: normal; font-weight: 400; }
+  .subtitle { margin: 1.8rem 0 0; font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.15rem); font-style: italic; letter-spacing: .05em; }
+  .hero-lead { max-width: 35rem; margin: 2rem 0 0; color: rgba(240, 232, 218, .83); font-size: clamp(1rem, 1.8vw, 1.25rem); }
+  .hero-index { position: absolute; right: -1vw; bottom: -10vw; z-index: -1; color: transparent; font-family: var(--serif); font-size: clamp(20rem, 45vw, 50rem); line-height: .7; -webkit-text-stroke: 1px rgba(184, 145, 86, .18); }
+  .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.25rem; }
+  .button { min-height: 3.2rem; display: inline-flex; align-items: center; justify-content: center; gap: .75rem; padding: .65rem 1.25rem; border: 1px solid var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease; }
+  .button:hover { transform: translateY(-2px); }
+  .button-primary { color: var(--ink); background: var(--gold); }
+  .button-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .button-secondary { color: var(--paper); background: rgba(11, 10, 8, .55); }
+  .button-secondary:hover { color: var(--gold-light); border-color: var(--gold-light); }
+  .privacy-note { margin: 1.25rem 0 0; color: rgba(240, 232, 218, .48); font-size: .75rem; }
+
+  .section { position: relative; display: grid; max-width: 92rem; margin: 0 auto; padding: clamp(6rem, 11vw, 11rem) clamp(1.25rem, 6vw, 6.5rem); }
+  .section-marker { position: absolute; top: 3rem; left: clamp(1.25rem, 6vw, 6.5rem); display: flex; align-items: center; gap: 1rem; color: var(--gold); font-family: var(--serif); font-size: .84rem; letter-spacing: .13em; text-transform: uppercase; }
+  .section-marker span:first-child { font-size: 1.3rem; }
+  .section-marker::after { content: ""; width: clamp(3rem, 8vw, 8rem); height: 1px; background: var(--line); }
+  .overline { margin: 0 0 1.1rem; color: var(--gold); font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  h2 { margin: 0; font-size: clamp(2.65rem, 5.5vw, 5.7rem); line-height: .95; letter-spacing: -.025em; }
+  .book { grid-template-columns: minmax(18rem, .8fr) minmax(22rem, 1fr); gap: clamp(4rem, 10vw, 11rem); align-items: center; background: radial-gradient(circle at 18% 43%, rgba(184, 145, 86, .1), transparent 25rem); }
+  .cover-stage { position: relative; display: grid; place-items: center; }
+  .book-cover { position: relative; width: min(27rem, 86%); box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, .55); transform: rotate(-1.7deg); }
+  .cover-number { position: absolute; left: -5%; top: 8%; color: transparent; font-family: var(--serif); font-size: clamp(12rem, 28vw, 27rem); line-height: .7; -webkit-text-stroke: 1px rgba(184, 145, 86, .22); }
+  .book-copy > p:not(.overline) { max-width: 40rem; color: var(--paper-dim); }
+  .book-copy h2 { max-width: 45rem; margin-bottom: 2rem; }
+  .book-data { max-width: 38rem; margin: 2.2rem 0; border-top: 1px solid var(--line); }
+  .book-data div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line); }
+  .book-data dt { color: var(--gold-light); font-family: var(--serif); font-size: 1.05rem; }
+  .book-data dd { margin: 0; color: var(--paper-dim); }
+  .text-link, .social-links a { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .5rem; color: var(--paper); font-size: .77rem; font-weight: 700; letter-spacing: .1em; text-decoration-color: var(--gold); text-underline-offset: .35rem; text-transform: uppercase; }
+  .text-link:hover, .social-links a:hover { color: var(--gold-light); }
+  .content-note { max-width: 38rem; margin-top: 2rem; border-block: 1px solid var(--line); }
+  .content-note summary { min-height: 3.2rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--gold-light); font-family: var(--serif); font-size: 1.1rem; }
+  .content-note summary::after { content: "+"; font-family: var(--sans); font-size: 1.2rem; }
+  .content-note[open] summary::after { content: "−"; }
+  .content-note p { padding: 0 0 1.2rem; }
+
+  .manifesto { position: relative; min-height: 34rem; display: grid; place-items: center; overflow: hidden; padding: 5rem 1.25rem; text-align: center; background: var(--gold); color: var(--ink); }
+  .manifesto p { position: relative; z-index: 1; margin: 0; font-family: var(--serif); font-size: clamp(3rem, 8vw, 8rem); line-height: .88; letter-spacing: -.04em; }
+  .manifesto span { position: absolute; right: -4vw; bottom: -12vw; color: transparent; font-family: var(--serif); font-size: clamp(22rem, 55vw, 50rem); line-height: .7; -webkit-text-stroke: 1px rgba(11, 10, 8, .2); }
+
+  .music { grid-template-columns: 1.15fr .85fr; gap: clamp(3rem, 8vw, 8rem); align-items: center; }
+  .music-visual { position: relative; }
+  .music-visual img { aspect-ratio: 1.22 / 1; width: 100%; object-fit: cover; filter: saturate(.65) contrast(1.08); }
+  .image-caption { position: absolute; right: -1rem; bottom: -2rem; max-width: 18rem; margin: 0; padding: 1.1rem 1.4rem; color: var(--ink); background: var(--gold-light); font-family: var(--serif); font-size: 1.2rem; line-height: 1.15; }
+  .music-copy h2 { margin-bottom: 2rem; }
+  .music-copy > p:not(.overline, .privacy-note) { color: var(--paper-dim); }
+  .media-links { margin-top: 2rem; border-top: 1px solid var(--line); }
+  .media-links a { min-height: 5.2rem; display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); text-decoration: none; }
+  .media-links a:hover strong, .media-links a:hover > span:last-child { color: var(--gold-light); }
+  .media-count { color: var(--gold-dark); font-family: var(--serif); font-size: 1.2rem; }
+  .media-links strong, .media-links small { display: block; }
+  .media-links strong { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
+  .media-links small { color: var(--paper-dim); font-size: .75rem; }
+
+  .author { grid-template-columns: .9fr .7fr; gap: clamp(4rem, 10vw, 11rem); align-items: center; }
+  .author::before { content: ""; position: absolute; inset: 12% 45% 12% 0; z-index: -1; background: var(--ink-soft); }
+  .author-copy h2 { max-width: 48rem; margin-bottom: 2rem; }
+  .author-copy > p:not(.overline) { max-width: 42rem; color: var(--paper-dim); }
+  .social-links { display: flex; flex-wrap: wrap; gap: .6rem 1.7rem; margin-top: 2rem; }
+  .author-portrait { position: relative; margin: 0; }
+  .author-portrait img { width: 100%; aspect-ratio: .8; object-fit: cover; object-position: center 24%; filter: grayscale(1) contrast(1.08); }
+  .author-portrait figcaption { position: absolute; right: -1rem; bottom: -1.7rem; display: grid; min-width: 14rem; padding: 1rem 1.3rem; color: var(--ink); background: var(--gold-light); }
+  .author-portrait figcaption span:first-child { font-family: var(--serif); font-size: 1.5rem; }
+  .author-portrait figcaption span:last-child { font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+  .final-cta { position: relative; min-height: 42rem; display: grid; place-items: center; overflow: hidden; padding: clamp(6rem, 10vw, 10rem) 1.25rem; border-block: 1px solid var(--line); text-align: center; }
+  .final-cta > div { position: relative; z-index: 1; max-width: 68rem; }
+  .final-cta h2 { margin-bottom: 2.5rem; }
+  .cta-number { position: absolute; left: 50%; top: 50%; color: transparent; font-family: var(--serif); font-size: clamp(28rem, 70vw, 65rem); line-height: .6; transform: translate(-50%, -47%); -webkit-text-stroke: 1px rgba(184, 145, 86, .17); }
+
+  footer { max-width: 92rem; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 6vw, 6.5rem) 2rem; }
+  .footer-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+  .footer-heading .wordmark { font-size: clamp(2rem, 5vw, 4.5rem); }
+  .footer-heading p { margin: 0; color: var(--paper-dim); }
+  .legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); padding: 3rem 0; }
+  .legal-grid section { max-width: 37rem; }
+  .legal-grid h2 { margin-bottom: 1.5rem; color: var(--gold-light); font-size: 2rem; }
+  .legal-grid p, .legal-grid address { color: var(--paper-dim); font-style: normal; }
+  .legal-grid a { min-height: 2.75rem; display: inline-flex; align-items: center; text-underline-offset: .25rem; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: rgba(240, 232, 218, .55); font-size: .75rem; }
+  .footer-bottom p { margin: 0; }
+  .footer-bottom a { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .4rem; }
+
+  @media (max-width: 800px) {
+    .site-header { align-items: flex-start; }
+    nav { max-width: 15rem; gap: .25rem .9rem; }
+    .hero { min-height: 51rem; }
+    .hero-image { object-position: 72% center; }
+    .hero-scrim { background: linear-gradient(90deg, rgba(5, 5, 4, .97), rgba(5, 5, 4, .63) 60%, rgba(5, 5, 4, .34)), linear-gradient(0deg, var(--ink), transparent 48%); }
+    .hero-copy { padding-top: 10rem; }
+    .hero-lead { max-width: 24rem; }
+    .book, .music, .author { grid-template-columns: 1fr; }
+    .book { gap: 4rem; }
+    .cover-stage { margin-top: 2rem; }
+    .book-cover { width: min(23rem, 78vw); }
+    .music-visual { margin-top: 2rem; }
+    .music-copy { order: -1; }
+    .author { gap: 4rem; }
+    .author::before { inset: 7% 0 38%; }
+    .author-portrait { width: min(32rem, 91%); margin-left: auto; }
+    .legal-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 520px) {
+    .site-header { padding-top: 1rem; }
+    .site-header .wordmark { font-size: 1.2rem; }
+    nav { max-width: 11rem; }
+    nav a { font-size: .63rem; }
+    .hero { min-height: 48rem; }
+    h1 { font-size: clamp(4.6rem, 26vw, 7.5rem); }
+    .actions { display: grid; }
+    .button { width: 100%; }
+    .book-data div { grid-template-columns: 1fr; gap: .1rem; }
+    .manifesto { min-height: 28rem; }
+    .image-caption, .author-portrait figcaption { right: -.6rem; }
+    .footer-heading { align-items: flex-start; flex-direction: column; }
+    .footer-bottom { align-items: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  }
+</style>

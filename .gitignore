@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.opencode/tmp/
+.opencode/logs/
+.DS_Store
+*.log
