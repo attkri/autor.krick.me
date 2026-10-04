@@ -1,25 +1,25 @@
 # My Memory Context
 
-**Stand:** 2026-10-04 00:00
+**Stand:** 2026-10-04 09:43
 
 ## Fortschritt
 
 **Aktueller Stand laufender Aufgaben:**
 
-- Die Astro-One-Page für `autor.krick.me` wird als Lara-47-zentrierte statische Website umgesetzt.
+- Die Lara-47-zentrierte Astro-One-Page ist unter `https://autor.krick.me` veröffentlicht.
 
 **Risiken:**
 
-- Cloudflare-Anmeldung und Domainzuordnung müssen beim ersten Deployment interaktiv bestätigt werden, falls keine aktive lokale Sitzung vorhanden ist.
+- Automatische Cloudflare-Builds aus GitHub sind noch nicht verbunden; aktuelle Deployments erfolgen mit Wrangler.
 
 **Offene Fragen:**
 
-- [ ] Keine inhaltlichen Grundsatzfragen offen.
+- [X] Keine inhaltlichen Grundsatzfragen offen.
 
 **Nächste Schritte:**
 
-- [ ] Build, Accessibility und responsive Darstellung prüfen.
-- [ ] GitHub und Cloudflare verbinden, deployen und Live-Domain verifizieren.
+- [X] Build, Accessibility und responsive Darstellung prüfen.
+- [X] GitHub einrichten, mit Cloudflare deployen und Live-Domain verifizieren.
 
 ## Entscheidungen
 
@@ -59,3 +59,4 @@
 | Erfasst am | Ereignisdatum | Ereignis / Änderung | Quelle | Status / Ergebnis |
 | --- | --- | --- | --- | --- |
 | 2026-10-04 00:00 | 2026-10-04 | Lara-zentrierte Seitenhierarchie, cookie-freie externe Medienlinks, Verzicht auf Tracking und autonomer Livegang festgelegt | User-Auskunft in aktueller Session | in Umsetzung |
+| 2026-10-04 09:43 | 2026-10-04 | Astro-Seite gebaut, responsiv und technisch geprüft, nach GitHub gepusht und über Workers Static Assets mit Custom Domain veröffentlicht | Verifizierte Toolergebnisse und Live-Abruf | erledigt |
