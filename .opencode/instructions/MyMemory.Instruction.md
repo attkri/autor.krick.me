@@ -1,25 +1,29 @@
 # My Memory Context
 
-**Stand:** 2026-10-04 09:43
+**Stand:** 2026-10-04 11:45
 
 ## Fortschritt
 
 **Aktueller Stand laufender Aufgaben:**
 
 - Die Lara-47-zentrierte Astro-One-Page ist unter `https://autor.krick.me` veröffentlicht.
+- Die Erweiterung mit vollständiger Leseprobe, KU-Hinweis, cookie-freiem Kontaktformular und ausführlicheren Datenschutzhinweisen ist veröffentlicht und live geprüft.
 
 **Risiken:**
 
 - Automatische Cloudflare-Builds aus GitHub sind noch nicht verbunden; aktuelle Deployments erfolgen mit Wrangler.
+- Der Hinweis auf Kindle Unlimited muss bei der KDP-Select-Entscheidung Ende Oktober 2026 erneut geprüft werden.
 
 **Offene Fragen:**
 
-- [X] Keine inhaltlichen Grundsatzfragen offen.
+- Keine offenen Fragen zum aktuellen Release.
 
 **Nächste Schritte:**
 
 - [X] Build, Accessibility und responsive Darstellung prüfen.
 - [X] GitHub einrichten, mit Cloudflare deployen und Live-Domain verifizieren.
+- [X] Formularerweiterung mit Resend deployen und durch eine echte Testnachricht live prüfen.
+- [ ] Kindle-Unlimited-Hinweis Ende Oktober 2026 bestätigen oder entfernen.
 
 ## Entscheidungen
 
@@ -43,6 +47,26 @@
 
 **Verworfen:** Eine allgemeine Autorenseite mit Lara 47 als einem von mehreren Werken.
 
+### Leseprobe und öffentliche Buchangaben (2026-10-04)
+
+**Entscheidung:** Kapitel 1 wird vollständig auf einer eigenen statischen Seite unter `/leseprobe/` veröffentlicht. Die Startseite verweist darauf, nennt die aktuelle Kindle-Unlimited-Verfügbarkeit und bezeichnet Attila als `Autor · Songtexter`. Band 2 wird ohne Erscheinungsdatum weiterhin nicht öffentlich angekündigt.
+
+**Begründung:** Eine eigene Seite bleibt direkt verlinkbar und hält die Verkaufsseite kompakt. KU ist ein belegter Kauf- beziehungsweise Lesehebel. Die Rollenbezeichnung ist durch die Projektdokumentation gedeckt. Für Band 2 gilt weiterhin die bestehende Marketingentscheidung, die Vorgeschichte bis zu einem belastbaren Erscheinungstermin nicht öffentlich zu kommunizieren.
+
+**Konsequenz:** `src/pages/leseprobe.md` enthält den unveränderten Kapiteltext. Astros automatische typografische Umwandlung ist deaktiviert. Der KU-Hinweis braucht Ende Oktober eine erneute Prüfung.
+
+**Verworfen:** Vollständiges Kapitel direkt in der One-Page, reiner Amazon-Leseprobenlink und eine öffentliche Band-2-Ankündigung.
+
+### Cookie-freies Kontaktformular (2026-10-04)
+
+**Entscheidung:** Der zusätzliche Kontaktweg wird als eigenes Formular über einen Cloudflare-Worker-Endpunkt und die Resend-API umgesetzt. Das Formular setzt keine Cookies und nutzt kein extern eingebettetes Captcha. Resend versendet über die verifizierte Subdomain `mail.autor.krick.me` an `attila@krick.me`; der API-Schlüssel liegt ausschließlich als Cloudflare-Secret `RESEND_API_KEY` vor.
+
+**Begründung:** Damit bleibt die Website datensparsam und bietet neben der E-Mail-Adresse einen direkten elektronischen Kontaktweg. Honeypot, serverseitige Validierung und Cloudflare Rate Limiting begrenzen Spam ohne Besuchertracking.
+
+**Konsequenz:** Das Formular ist veröffentlicht. Eine echte Testnachricht wurde von der Live-Seite angenommen und von Resend als `Delivered` ausgewiesen. Google-Workspace-MX-Einträge für `krick.me` bleiben unverändert.
+
+**Verworfen:** Telefonnummer, externes Formulardienst-Embedding und ein Cookie- oder Captcha-abhängiger Dienst. Cloudflare Email Service wurde verworfen, weil der direkte Versand einen kostenpflichtigen Workers-Tarif erfordert und Email Routing mit den bestehenden Google-Workspace-MX-Einträgen kollidieren könnte.
+
 ## Context
 
 - **Projektzweck:** Öffentliche One-Page-Autorenseite für Lara 47, Attila Krick und die Musik zum Buch.
@@ -52,7 +76,7 @@
 
 ## Referenzen
 
-- **Dateien:** `src/pages/index.astro`, `AGENTS.md`
+- **Dateien:** `src/pages/index.astro`, `src/pages/leseprobe.md`, `src/layouts/ReadingLayout.astro`, `worker/index.ts`, `wrangler.jsonc`, `AGENTS.md`
 
 ## Verlauf
 
@@ -60,3 +84,5 @@
 | --- | --- | --- | --- | --- |
 | 2026-10-04 00:00 | 2026-10-04 | Lara-zentrierte Seitenhierarchie, cookie-freie externe Medienlinks, Verzicht auf Tracking und autonomer Livegang festgelegt | User-Auskunft in aktueller Session | in Umsetzung |
 | 2026-10-04 09:43 | 2026-10-04 | Astro-Seite gebaut, responsiv und technisch geprüft, nach GitHub gepusht und über Workers Static Assets mit Custom Domain veröffentlicht | Verifizierte Toolergebnisse und Live-Abruf | erledigt |
+| 2026-10-04 10:50 | 2026-10-04 | Eigene Leseprobenseite, KU-Hinweis, Rollenbezeichnung `Autor · Songtexter`, erweiterter Datenschutz und cookie-freies Kontaktformular umgesetzt | User-Entscheidungen und verifizierte lokale Builds sowie Browserprüfung | lokal erledigt, E-Mail-Onboarding und Deployment offen |
+| 2026-10-04 11:45 | 2026-10-04 | Resend-Versanddomain `mail.autor.krick.me` verifiziert, API-Schlüssel als Cloudflare-Secret hinterlegt, Erweiterung veröffentlicht und Kontaktformular produktiv getestet | Verifizierte Cloudflare-, Resend- und Browserergebnisse | Live-Seite bestätigt Versand; Resend meldet Testnachricht an `attila@krick.me` als `Delivered` |

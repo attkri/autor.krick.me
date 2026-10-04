@@ -4,6 +4,9 @@ export function GET() {
   <url>
     <loc>https://autor.krick.me/</loc>
   </url>
+  <url>
+    <loc>https://autor.krick.me/leseprobe/</loc>
+  </url>
 </urlset>`;
 
   return new Response(body, {

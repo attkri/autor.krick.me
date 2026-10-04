@@ -10,6 +10,7 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.2",
     "@fontsource/cormorant-garamond": "^5.2.8",
     "astro": "^7.3.5"
   },

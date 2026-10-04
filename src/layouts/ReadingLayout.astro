@@ -1,0 +1,90 @@
+---
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/cormorant-garamond/600.css";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const amazonUrl = "https://www.amazon.de/dp/B0GXXH1NCV";
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0b0a08" />
+    <meta name="description" content={frontmatter.description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:url" content="https://autor.krick.me/leseprobe/" />
+    <meta property="og:image" content="https://autor.krick.me/og-lara47.jpg" />
+    <link rel="canonical" href="https://autor.krick.me/leseprobe/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#leseprobe">Zur Leseprobe springen</a>
+    <header>
+      <a class="wordmark" href="/" aria-label="Lara 47, Startseite"><span>Lara</span><strong>47</strong></a>
+      <a class="back-link" href="/">Zurück zum Buch</a>
+    </header>
+    <main id="leseprobe">
+      <div class="chapter-marker" aria-hidden="true">01</div>
+      <article>
+        <p class="overline">Leseprobe · Band 1</p>
+        <slot />
+        <aside>
+          <p>Du möchtest weiterlesen?</p>
+          <a class="button" href={amazonUrl} target="_blank" rel="noopener noreferrer">Lara 47 bei Amazon ansehen <span aria-hidden="true">↗</span></a>
+          <small>Kindle, Taschenbuch, Hardcover und aktuell in Kindle Unlimited.</small>
+        </aside>
+      </article>
+    </main>
+    <footer>
+      <p>© 2026 Attila Krick</p>
+      <a href="/#impressum">Impressum und Datenschutz</a>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root { color-scheme: dark; --ink: #0b0a08; --ink-soft: #12100d; --paper: #f0e8da; --paper-dim: #b7ad9f; --gold: #b89156; --gold-light: #d2b77e; --line: rgba(184, 145, 86, .28); --serif: "Cormorant Garamond", Georgia, serif; --sans: "Aptos", "Segoe UI", sans-serif; }
+  * { box-sizing: border-box; }
+  html { background: var(--ink); scroll-behavior: smooth; }
+  body { margin: 0; overflow-x: clip; color: var(--paper); background: radial-gradient(circle at 78% 8%, rgba(184, 145, 86, .1), transparent 30rem), var(--ink); font-family: var(--sans); line-height: 1.75; }
+  body::before { content: "47"; position: fixed; right: -6vw; bottom: -13vw; z-index: -1; color: transparent; font-family: var(--serif); font-size: clamp(22rem, 55vw, 54rem); line-height: .7; -webkit-text-stroke: 1px rgba(184, 145, 86, .1); }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 5px; }
+  ::selection { color: var(--ink); background: var(--gold-light); }
+  .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 10; padding: .7rem 1rem; color: var(--ink); background: var(--paper); transform: translateY(-160%); }
+  .skip-link:focus { transform: translateY(0); }
+  header, footer { display: flex; align-items: center; justify-content: space-between; gap: 2rem; max-width: 82rem; margin: 0 auto; padding: 1.5rem clamp(1.25rem, 6vw, 6rem); border-bottom: 1px solid var(--line); }
+  footer { margin-top: 6rem; border-top: 1px solid var(--line); border-bottom: 0; color: var(--paper-dim); font-size: .82rem; }
+  footer p { margin: 0; }
+  .wordmark { display: inline-flex; align-items: baseline; gap: .35em; font-family: var(--serif); font-size: 1.45rem; letter-spacing: .08em; line-height: 1; text-decoration: none; text-transform: uppercase; }
+  .wordmark strong { color: var(--gold-light); font-size: 1.1em; font-weight: 400; }
+  .back-link, footer a { min-height: 2.75rem; display: inline-flex; align-items: center; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-underline-offset: .3rem; text-transform: uppercase; }
+  main { position: relative; max-width: 82rem; margin: 0 auto; padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 6rem) 0; }
+  article { width: min(45rem, 100%); margin: 0 auto; }
+  .chapter-marker { position: absolute; top: 2rem; left: clamp(1.25rem, 6vw, 6rem); color: transparent; font-family: var(--serif); font-size: clamp(7rem, 18vw, 15rem); line-height: 1; -webkit-text-stroke: 1px rgba(184, 145, 86, .24); }
+  .overline { margin: 0 0 1.2rem; color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  h1 { margin: 0 0 3.5rem; font-family: var(--serif); font-size: clamp(3.5rem, 8vw, 6.8rem); font-weight: 400; letter-spacing: -.03em; line-height: .92; text-wrap: balance; }
+  article > p { margin: 0 0 1.5rem; color: #d7cfc2; font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.42rem); line-height: 1.75; }
+  article > hr { width: 3.5rem; height: 1px; margin: 3.5rem auto; border: 0; background: var(--gold); }
+  aside { margin-top: 5rem; padding: clamp(2rem, 5vw, 3.5rem); border: 1px solid var(--line); background: rgba(18, 16, 13, .88); text-align: center; }
+  aside p { margin: 0 0 1.4rem; font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.7rem); }
+  aside small { display: block; margin-top: 1rem; color: var(--paper-dim); }
+  .button { min-height: 3.2rem; display: inline-flex; align-items: center; justify-content: center; gap: .75rem; padding: .65rem 1.25rem; border: 1px solid var(--gold); color: var(--ink); background: var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
+  .button:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  @media (max-width: 520px) { header, footer { align-items: flex-start; } footer { flex-direction: column; gap: .5rem; } .button { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
