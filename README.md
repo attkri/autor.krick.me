@@ -1,35 +1,23 @@
-# autor.krick.me
+# Lara 47
 
 ## Überblick
 
-Astro-Website für den Dark-Romance-Roman "Lara 47 - Zwischen Kontrolle und Hingabe" von Attila Krick. Die Startseite stellt Buch, Autor, Musik und Trailer vor und führt zur Amazon-Produktseite. Unter `/leseprobe/` steht das vollständige erste Kapitel. Die Website läuft ohne Cookies, Tracking oder automatisch geladene Inhalte von Drittanbietern. Das Produktionsziel ist Cloudflare Workers Static Assets unter `https://autor.krick.me`.
+"Lara 47 - Zwischen Kontrolle und Hingabe" ist ein Dark-Romance-Roman von Attila Krick. Lara hat lange gelernt zu funktionieren. Jetzt muss sie herausfinden, was sie selbst will und was Freiheit für sie kostet.
+
+Auf der Website findest du das Buch, das vollständige erste Kapitel, den offiziellen Trailer und Songs aus derselben Welt.
+
+[Zur Website von Lara 47](https://autor.krick.me/)
+
+Der Roman richtet sich an Erwachsene. Vor der Leseprobe steht ein kurzer Inhaltshinweis.
 
 ## Voraussetzungen
 
-- Node.js 24 oder neuer
-- npm 11 oder neuer
-- Cloudflare-Zugriff für Deployments
-- Bei Cloudflare als Secret hinterlegter Resend-Schlüssel `RESEND_API_KEY`
-- Bei Resend verifizierte Versanddomain `mail.autor.krick.me`
+Keine Anmeldung. Du kannst direkt mit der Leseprobe beginnen. Spotify, YouTube, Amazon und Instagram öffnen sich erst, wenn du den jeweiligen Link auswählst.
 
-## Entwicklung
+## Lara 47 entdecken
 
-```sh
-npm install
-npm run dev
-```
-
-## Prüfung
-
-```sh
-npm run check
-npm run build
-```
-
-## Deployment
-
-Das Kontaktformular sendet serverseitig aus dem Worker über Resend. Der API-Key wird ausschließlich als Cloudflare-Secret gespeichert und gehört nicht in lokale Dateien oder Git.
-
-```sh
-npm run deploy
-```
+- [Kapitel 1 lesen](https://autor.krick.me/leseprobe/)
+- [Buch bei Amazon ansehen](https://www.amazon.de/dp/B0GXXH1NCV)
+- [Buchsongs auf Spotify hören](https://open.spotify.com/artist/7xHFjmvtJp2sSOBuRqKjiy)
+- [Trailer und Songs auf YouTube ansehen](https://www.youtube.com/@AttilaKrickAutor)
+- [Attila Krick auf Instagram](https://www.instagram.com/a_tti_la/)
